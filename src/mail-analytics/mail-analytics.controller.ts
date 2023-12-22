@@ -14,7 +14,10 @@ export class MailAnalyticsController {
   @Post('mail')
   async categorizeMail(@Body() mailData: MailAnalyticsInputDto) {
     let category: string;
+    console.log("MailAnalyticsInputDto Request", mailData);
     category = await this.analyticsService.categorize(mailData);
+
+    console.log("OUTPUT category: ", category);
     return category == "" ? "primary" : category;
   }
 }

@@ -13,6 +13,9 @@ export class MailAnalyticsService {
      */
     async categorize(mailData: MailAnalyticsInputDto): Promise<string> {
         try {
+
+            console.log("MailAnalyticsInputDto Request", mailData);
+
             const isSpam: boolean = await this.spamCheck(mailData);
             if (!isSpam) {
                 let result: any;
@@ -77,6 +80,8 @@ export class MailAnalyticsService {
      */
     async getAnalytics(inputData: AnalyticsInputDto): Promise<any> {
         try {
+            console.log("AnalyticsInputDto Request", inputData);
+
             let result: any;
             const options = {
                 method: 'POST',
@@ -100,7 +105,7 @@ export class MailAnalyticsService {
             };
            
             result = await axios(options);
-            console.log(JSON.stringify(result.data,null,2));
+            console.log("getAnalytics output: ", JSON.stringify(result.data,null,2));
 
             return result.data || "";
 
