@@ -2,6 +2,11 @@ import { HttpException, Injectable } from '@nestjs/common';
 import axios from 'axios';
 import { MailAnalyticsInputDto,AnalyticsInputDto } from './input-dto/input.dto';
 
+/**
+ * The @Injectable() decorator attaches metadata, which declares that MailAnalyticsService is a class that can be managed by the Nest IoC. 
+ * The MailAnalyticsService is injected through the class constructor in MailAnalyticsController. 
+ * Please read about dependency injection to learn more : https://angular.io/guide/dependency-injection
+ */
 @Injectable()
 export class MailAnalyticsService {
 

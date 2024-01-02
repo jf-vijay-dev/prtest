@@ -17,6 +17,13 @@ const bootstrapServer = async (): Promise<Server> => {
   return awsServerlessExpress.createServer(expressApp);
 }
 
+/**
+ * 
+ * @param event 
+ * @param context 
+ * @returns an express adapter to host the Nest application as a Lambda function.
+ */
+
 export const handler: APIGatewayProxyHandler = async (event, context) => {
   if (!cachedServer) {
     cachedServer = await bootstrapServer()
